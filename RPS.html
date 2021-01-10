@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Page Title</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script>
+
+let Powitanie = prompt("Choose paper, rock or scissors.");
+let playerSelection = Powitanie.toLowerCase();
+let playerScore = 0;
+let computerScore = 0;
+
+const computerPlay = ["rock", "paper", "scissors"];
+const computerSelection = computerPlay[Math.floor(Math.random() * computerPlay.length)];
+
+
+let computerMove = alert("The choice of the computer is: " + computerSelection);
+
+
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    alert("It is a tie!");
+    playerScore++;
+    computerScore++;
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
+    alert("Computer wins!");
+    computerScore++;
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    alert("Player wins!");
+    playerScore++;
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    alert("Player wins!");
+    playerScore++;
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    alert("Computer wins!");
+    computerScore++;
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    alert("Player wins!");
+    playerScore++;
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    alert("Computer wins!");
+    computerScore++;
+  } else {
+    alert("Wrong word has been entered.");
+  }
+}
+playRound(playerSelection, computerSelection);
+
+
+function gameResult(playerScore, computerScore) {
+  if (playerScore == computerScore) {
+    alert("A tie!");
+  } else if (playerScore >= computerScore) {
+    alert("Player wins the game!");
+  } else {
+    alert("Computer wins the game!");
+  }
+}
+
+
+function gameEnding() {
+  if (playerScore  == 5 || computerScore == 5) {
+    alert("Ultimate game result - Player: " +
+      playerScore + ", Computer: " + computerScore);
+    gameResult(playerScore, computerScore);
+  } else {
+
+    let Powitanie = prompt("Choose paper, rock or scissors.");
+    let playerSelection = Powitanie.toLowerCase();
+    const computerPlay = ["rock", "paper", "scissors"];
+    const computerSelection = computerPlay[Math.floor(Math.random() * computerPlay.length)];
+    let computerMove = alert("The choice of the computer is: " + computerSelection);
+    playRound(playerSelection, computerSelection);
+    gameEnding();
+  }
+
+}
+gameEnding();
+
+
+ </script>
+  </body>
+
+</html>
